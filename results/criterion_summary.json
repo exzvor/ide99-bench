@@ -1,0 +1,67 @@
+{
+  "_comment": "Harvested from ide99/target/criterion after running each bench with --quick on Apple silicon. Re-run with cargo bench in the main ide99 repo.",
+  "captured_at": "2026-05-09T22:35:58Z",
+  "captured_on": "darwin-arm64",
+  "benches": {
+    "parser_bench::parse_select_typical": {
+      "median_ns": 25624,
+      "median_ms": 0.0256,
+      "std_err_ns": 19
+    },
+    "parser_bench::parse_ddl_100lines": {
+      "median_ns": 476268,
+      "median_ms": 0.4763,
+      "std_err_ns": 1001
+    },
+    "explain_render::explain_parse_500_nodes_fixture": {
+      "median_ns": 640314,
+      "median_ms": 0.6403,
+      "std_err_ns": 1632
+    },
+    "explain_render::explain_walk_500_nodes_fixture": {
+      "median_ns": 12979,
+      "median_ms": 0.013,
+      "std_err_ns": 91
+    },
+    "explain_render::explain_insights_500_nodes_fixture": {
+      "median_ns": 676424,
+      "median_ms": 0.6764,
+      "std_err_ns": 1357
+    },
+    "autocomplete_latency::autocomplete_parse_corpus/all_queries": {
+      "median_ns": 276487,
+      "median_ms": 0.2765,
+      "std_err_ns": 640
+    },
+    "autocomplete_latency::autocomplete_parse_corpus/query/2": {
+      "median_ns": 44590,
+      "median_ms": 0.0446,
+      "std_err_ns": 154
+    },
+    "autocomplete_latency::autocomplete_parse_64_join_query": {
+      "median_ns": 666632,
+      "median_ms": 0.6666,
+      "std_err_ns": 787
+    },
+    "autocomplete_latency::autocomplete_scope_extraction_corpus": {
+      "median_ns": 276822,
+      "median_ms": 0.2768,
+      "std_err_ns": 746
+    },
+    "result_grid_format::result_grid_serialize/query_result_to_json/1000": {
+      "median_ns": 119685,
+      "median_ms": 0.1197,
+      "std_err_ns": 828
+    },
+    "result_grid_format::result_grid_serialize/query_result_to_json/10000": {
+      "median_ns": 1256900,
+      "median_ms": 1.2569,
+      "std_err_ns": 1603
+    },
+    "result_grid_format::result_grid_serialize/query_result_to_json/100000": {
+      "median_ns": 13806955,
+      "median_ms": 13.807,
+      "std_err_ns": 131596
+    }
+  }
+}

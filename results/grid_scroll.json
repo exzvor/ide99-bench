@@ -1,0 +1,25 @@
+{
+  "bench": "grid_scroll",
+  "total_rows": 50000000,
+  "viewport_rows": 40,
+  "overscan": 24,
+  "window_per_frame": 88,
+  "frames": 600,
+  "cached_page_size": 100000,
+  "ms_per_frame": {
+    "min": 0.0631660000000025,
+    "median": 0.06999999999999318,
+    "p95": 0.07916699999999821,
+    "p99": 0.09320800000000418,
+    "max": 2.198749999999997,
+    "mean": 0.07511651000000007
+  },
+  "fps": {
+    "at_median_frame_compute": 14285.714285715678,
+    "at_p95_frame_compute": 12631.525761997076,
+    "capped_at_60": 60
+  },
+  "dropped_frames_count": 0,
+  "budget_ms_per_frame": 16.666666666666668,
+  "_sink": 11467497112
+}

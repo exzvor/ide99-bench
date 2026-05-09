@@ -1,0 +1,9 @@
+target/
+**/target/
+node_modules/
+.DS_Store
+*.log
+
+# Keep results/ committed — it's the whole point of this repo.
+# Override with results/scratch/ for local experimentation.
+results/scratch/
