@@ -23,6 +23,7 @@
 //! What we do NOT measure:
 //!   - Tauri IPC frame
 //!   - JS-side virtualised render
+//!
 //! Both add a small constant overhead (~5–25ms on Apple silicon) on top of
 //! the numbers below.
 
@@ -48,18 +49,28 @@ fn pct(values: &[u128], p: f64) -> u128 {
 fn cell_to_json(row: &Row, idx: usize, col: &Column) -> Value {
     let ty = col.type_();
     match *ty {
-        Type::INT2 => row.get::<_, Option<i16>>(idx).map_or(Value::Null, |v| json!(v)),
-        Type::INT4 => row.get::<_, Option<i32>>(idx).map_or(Value::Null, |v| json!(v)),
-        Type::INT8 => row.get::<_, Option<i64>>(idx).map_or(Value::Null, |v| json!(v)),
-        Type::FLOAT4 => row.get::<_, Option<f32>>(idx).map_or(Value::Null, |v| json!(v)),
-        Type::FLOAT8 => row.get::<_, Option<f64>>(idx).map_or(Value::Null, |v| json!(v)),
-        Type::BOOL => row.get::<_, Option<bool>>(idx).map_or(Value::Null, |v| json!(v)),
+        Type::INT2 => row
+            .get::<_, Option<i16>>(idx)
+            .map_or(Value::Null, |v| json!(v)),
+        Type::INT4 => row
+            .get::<_, Option<i32>>(idx)
+            .map_or(Value::Null, |v| json!(v)),
+        Type::INT8 => row
+            .get::<_, Option<i64>>(idx)
+            .map_or(Value::Null, |v| json!(v)),
+        Type::FLOAT4 => row
+            .get::<_, Option<f32>>(idx)
+            .map_or(Value::Null, |v| json!(v)),
+        Type::FLOAT8 => row
+            .get::<_, Option<f64>>(idx)
+            .map_or(Value::Null, |v| json!(v)),
+        Type::BOOL => row
+            .get::<_, Option<bool>>(idx)
+            .map_or(Value::Null, |v| json!(v)),
         Type::TEXT | Type::VARCHAR | Type::NAME | Type::CHAR | Type::BPCHAR => row
             .get::<_, Option<String>>(idx)
             .map_or(Value::Null, Value::String),
-        Type::JSON | Type::JSONB => row
-            .get::<_, Option<Value>>(idx)
-            .unwrap_or(Value::Null),
+        Type::JSON | Type::JSONB => row.get::<_, Option<Value>>(idx).unwrap_or(Value::Null),
         Type::TIMESTAMPTZ | Type::TIMESTAMP => row
             .get::<_, Option<chrono::DateTime<chrono::Utc>>>(idx)
             .map_or(Value::Null, |v| Value::String(v.to_rfc3339())),
